@@ -1,0 +1,45 @@
+{
+    "name": "vsoft/laravel-escrow",
+    "license": "GNU",
+    "autoload": {
+        "psr-4": {
+            "VSoft\\LaravelEscrow\\": "src/"
+        }
+    },
+    "require": {
+        "php": ">=7.0.0",
+        "illuminate/support": "^5.5",
+        "illuminate/database": "^5.5",
+        "illuminate/events": "^5.5",
+        "VSoftdk/laravel-currencies": "@dev",
+        "VSoftdk/laravel-eloquent-status": "@dev",
+        "stripe/stripe-php": "~5.0",
+        "VSoftdk/laravel-stripe-objects": "@dev"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^2.3",
+        "laravel/laravel": "5.5",
+        "doctrine/dbal": "^2.5",
+        "orchestra/testbench": "~3.5",
+        "mockery/mockery": "^0.9.9"
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "VSoft\\LaravelEscrow\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "aliases": {
+                "Escrow": "VSoft\\LaravelEscrow\\EscrowFacade"
+            },
+            "providers": [
+                "VSoft\\LaravelEscrow\\Providers\\EscrowServiceProvider"
+            ]
+        }
+    },
+    "scripts": {
+        "test": "./vendor/bin/phpunit",
+        "style": "./vendor/bin/php-cs-fixer fix ./src --rules=@PSR2,@Symfony,ordered_class_elements,ordered_imports --verbose"
+    }
+}
